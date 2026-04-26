@@ -1,0 +1,32 @@
+{
+  "name": "advaer-plugins",
+  "owner": {
+    "name": "Rinat Advaer"
+  },
+  "metadata": {
+    "description": "Claude Code plugins by Rinat Advaer.",
+    "version": "0.1.0"
+  },
+  "allowCrossMarketplaceDependenciesOn": [
+    "claude-plugins-official"
+  ],
+  "plugins": [
+    {
+      "name": "forge-design",
+      "source": "./forge/forge-design",
+      "description": "AI Startup Studio — design skills (ux → layout → wireframe → concept → ds → ui).",
+      "author": {
+        "name": "Rinat Advaer"
+      },
+      "category": "design",
+      "keywords": [
+        "design",
+        "figma",
+        "ux",
+        "ui",
+        "wireframe",
+        "design-system"
+      ]
+    }
+  ]
+}

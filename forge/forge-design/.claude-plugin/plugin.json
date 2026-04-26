@@ -1,0 +1,14 @@
+{
+  "name": "forge-design",
+  "version": "0.1.0",
+  "description": "AI Startup Studio — design skills (ux → layout → wireframe → concept → ds → ui).",
+  "author": {
+    "name": "Rinat Advaer"
+  },
+  "dependencies": [
+    {
+      "name": "figma",
+      "marketplace": "claude-plugins-official"
+    }
+  ]
+}
