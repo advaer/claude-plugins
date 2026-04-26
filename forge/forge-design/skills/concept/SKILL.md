@@ -43,7 +43,7 @@ genuine strategic choice about how the product presents itself to the world.
   is the primary dashboard and to look up its wireframe in the Figma file.
 - The PRD at `frontmatter.sources.prd` (md/pdf) — brand tone, product type, personas, goals.
 - The features at `frontmatter.sources.features` — for realistic moodframe content.
-- `docs/ux-designer/ux-spec.md` body — navigation structure, primary dashboard definition.
+- `docs/design/ux-spec.md` body — navigation structure, primary dashboard definition.
 - Figma wireframes file at `frontmatter.figma.wireframes_file_key` — open it
   to see the actual primary-dashboard wireframe; concepts render against
   this wireframe so token choices show how they hold up on real product structure.
@@ -129,7 +129,7 @@ to make the expensive decision cheaply.
 1. Read `docs/design/wireframe-inventory.md`. Parse YAML frontmatter:
    - `sources.prd`, `sources.features`, `user_brief`
    - `figma.wireframes_file_key`
-2. Read `docs/ux-designer/ux-spec.md` body. Identify the **primary
+2. Read `docs/design/ux-spec.md` body. Identify the **primary
    authenticated screen** — the one a user lands on after login, which they
    use most frequently. The decision surface.
 3. Open the wireframes Figma file via `figma.wireframes_file_key`. Locate

@@ -20,7 +20,7 @@ disable-model-invocation: true
 ```
 
 No `@`-paths needed — `sources.prd` and `sources.features` are read from
-`docs/ux-designer/ux-spec.md` frontmatter. Pass freeform `$ARGUMENTS` for
+`docs/design/ux-spec.md` frontmatter. Pass freeform `$ARGUMENTS` for
 layout-specific directives.
 
 ## Role
@@ -45,7 +45,7 @@ inventory.
 
 ## Inputs
 
-- `docs/ux-designer/ux-spec.md` — **required**. Read its YAML frontmatter to
+- `docs/design/ux-spec.md` — **required**. Read its YAML frontmatter to
   inherit `sources.prd`, `sources.features`, and `user_brief`. Read its body
   for the screen inventory and navigation structure.
 - The PRD file at `frontmatter.sources.prd` (md/pdf) — read for personas,
@@ -53,11 +53,11 @@ inventory.
 - The features at `frontmatter.sources.features` (folder OR file) — read
   every feature file. Feature files are NOT enriched with UX notes by `ux`;
   derive feature-level UX context from user stories + acceptance criteria
-  in each `description.md`, plus `docs/ux-designer/ux-spec.md` for
+  in each `description.md`, plus `docs/design/ux-spec.md` for
   cross-feature flows and screen inventory.
 - `$ARGUMENTS` — optional freeform layout directives (see below).
 
-**Required-input gate:** if `docs/ux-designer/ux-spec.md` does not exist or
+**Required-input gate:** if `docs/design/ux-spec.md` does not exist or
 has no frontmatter → STOP and tell the user:
 > "No upstream UX spec with frontmatter found. Run `/forge-design:ux` first
 > (with `@prd` and `@features` paths or a freeform brief)."
@@ -122,7 +122,7 @@ reviewable before any screen design begins. Speed and clarity over polish.
 
 ### Step 1: Read all inputs
 
-1. Read `docs/ux-designer/ux-spec.md`. Parse its YAML frontmatter:
+1. Read `docs/design/ux-spec.md`. Parse its YAML frontmatter:
    - `sources.prd` → path to PRD
    - `sources.features` → path to features folder/file
    - `user_brief` → cumulative freeform brief from upstream

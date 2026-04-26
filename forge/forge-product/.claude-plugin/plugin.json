@@ -1,0 +1,8 @@
+{
+  "name": "forge-product",
+  "version": "0.1.0",
+  "description": "AI Startup Studio — Product Management plugin (PRD + backlog). Standalone, plugin-portable inputs.",
+  "author": {
+    "name": "Rinat Advaer"
+  }
+}

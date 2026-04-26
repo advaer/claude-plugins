@@ -47,6 +47,8 @@ forge/                             # "AI Startup Studio" plugin family
 
 **Family directory (`forge/`)** is purely organizational — Claude Code doesn't interpret it. The `source` field in each marketplace entry resolves the actual path (`./forge/<plugin-name>`). Adding a sibling family later (e.g. `data/`) is just a directory and another `plugins[]` entry.
 
+**Output-path convention for `forge-*` plugins**: each plugin writes its outputs to `docs/<plugin-suffix>/` where suffix is whatever follows `forge-` (e.g. `forge-product` → `docs/product/`, `forge-design` → `docs/design/`). The single documented exception is `/forge-product:backlog`, which writes to `docs/backlog/NNN-feature-name/description.md` at the docs root because backlog items are first-class artifacts consumed by multiple downstream plugins. See [`forge/README.md`](forge/README.md).
+
 **Plugin name vs. directory path** are decoupled. The slash-command namespace is the plugin's `name` field in `plugin.json` (e.g. `/forge-design:<skill>`), not the directory. Renaming the directory does not break invocations; renaming the plugin does.
 
 ### Cross-marketplace dependencies
@@ -68,7 +70,7 @@ Removing either silently breaks installs for new users. When adding a new plugin
 
 ## Plugin authoring conventions
 
-These are inherited from `forge-design` and apply to any new plugin in this marketplace unless the plugin's own README overrides:
+These are shared across `forge-*` plugins and apply to any new plugin in the family unless the plugin's own README overrides:
 
 - **Skill contract**: each skill accepts a freeform `$ARGUMENTS`; if it can't identify required inputs, it stops and asks. Pipeline skills write output artifacts with frontmatter (`sources`, `user_brief`, plus domain-specific keys like `figma`) so the next skill can pick up upstream context without re-passing arguments.
 - **Self-review with iteration cap**: every skill runs a self-review checklist at end-of-work and iterates up to 2 times to fix flagged issues. Remaining issues land in a `## ⚠ Outstanding Issues` section in the output document plus a console warning — they are *not* silently dropped.

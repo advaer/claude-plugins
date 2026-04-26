@@ -12,6 +12,23 @@
   ],
   "plugins": [
     {
+      "name": "forge-product",
+      "source": "./forge/forge-product",
+      "description": "AI Startup Studio — Product Management plugin (PRD + backlog). Standalone, plugin-portable inputs.",
+      "author": {
+        "name": "Rinat Advaer"
+      },
+      "category": "product",
+      "keywords": [
+        "product",
+        "prd",
+        "backlog",
+        "rice",
+        "user-stories",
+        "feature-description"
+      ]
+    },
+    {
       "name": "forge-design",
       "source": "./forge/forge-design",
       "description": "AI Startup Studio — design skills (ux → layout → wireframe → concept → ds → ui).",

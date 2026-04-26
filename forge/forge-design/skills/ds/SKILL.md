@@ -43,7 +43,7 @@ Mobile-friendliness is a constraint, not an afterthought.
   the approved direction, token decisions, personality brief, archetype.
 - The PRD at `frontmatter.sources.prd` (md/pdf) — brand tone, product type, personas.
 - The features at `frontmatter.sources.features` — used to build the component inventory.
-- `docs/ux-designer/ux-spec.md` body — navigation structure, interaction patterns, screen inventory.
+- `docs/design/ux-spec.md` body — navigation structure, interaction patterns, screen inventory.
 - `$ARGUMENTS` — optional freeform design-system directives (see below).
 
 **Required-input gate:** if `docs/design/concept-brief.md` does not exist
@@ -133,7 +133,7 @@ system is used directly by `/forge-design:ui` and then implemented by developers
    - Archetype and deviation
 3. Read the PRD at `sources.prd` and feature files under `sources.features`
    for personas, brand tone, and the component inventory.
-4. Read `docs/ux-designer/ux-spec.md` body for navigation structure and
+4. Read `docs/design/ux-spec.md` body for navigation structure and
    interaction patterns.
 
 Do not re-derive concept decisions. They are already made. This skill executes them.

@@ -49,7 +49,7 @@ Accepted via `$ARGUMENTS`:
 
 1. **Explicit `@`-path** in `$ARGUMENTS` (highest priority).
 2. **PRD convention default** — if no `@`-PRD given, check
-   `docs/product-manager/prd.md`. If present, use it and record the path
+   `docs/product/prd.md`. If present, use it and record the path
    in `sources.prd` for future reference. If absent, leave `sources.prd`
    null.
 3. **Features convention default** — if no `@`-features given AND
@@ -69,13 +69,13 @@ are all null, STOP and ask:
 > - A features path: `/forge-design:ux @path/to/features`
 > - A freeform brief: `/forge-design:ux \"a Notion-like CRM for indie consultants\"`
 >
-> (I checked `docs/product-manager/prd.md` — not found.)"
+> (I checked `docs/product/prd.md` — not found.)"
 
 Do not proceed with placeholder content.
 
 ## Outputs
 
-- `docs/ux-designer/ux-spec.md` — global UX spec, populated from the
+- `docs/design/ux-spec.md` — global UX spec, populated from the
   template at `${CLAUDE_SKILL_DIR}/templates/ux-spec.md`. **Opens with
   YAML frontmatter** (see schema below).
 
@@ -209,7 +209,7 @@ Post-MVP screens noted but not elaborated.
 
 Read `${CLAUDE_SKILL_DIR}/templates/ux-spec.md`. Populate it. Prepend the
 YAML frontmatter from the schema in `## Outputs`. Write to
-`docs/ux-designer/ux-spec.md`.
+`docs/design/ux-spec.md`.
 
 Screen names in the spec are canonical — downstream design artifacts
 (layout-spec.md, wireframe-inventory.md, etc.) reference them.
@@ -221,7 +221,7 @@ Screen names in the spec are canonical — downstream design artifacts
 Before declaring done, verify each item. Mark ✅/❌ inline.
 
 **Structural:**
-- [ ] `docs/ux-designer/ux-spec.md` exists with valid frontmatter
+- [ ] `docs/design/ux-spec.md` exists with valid frontmatter
 - [ ] `frontmatter.sources.prd` is absolute (or null with explanation in spec body)
 - [ ] `frontmatter.sources.features` is absolute (or null with explanation)
 - [ ] `frontmatter.user_brief` matches what the user typed (verbatim)
@@ -261,10 +261,10 @@ loop:
     fix the flagged items only
     continue
   else:  # attempts == 2 and items still failing
-    APPEND a "## ⚠ Outstanding Issues" section to docs/ux-designer/ux-spec.md
+    APPEND a "## ⚠ Outstanding Issues" section to docs/design/ux-spec.md
       listing each unresolved checklist item with a one-line reason
     PRINT to console (verbatim):
-      ⚠ /forge-design:ux completed with N unresolved issues — see docs/ux-designer/ux-spec.md
+      ⚠ /forge-design:ux completed with N unresolved issues — see docs/design/ux-spec.md
     exit
 ```
 
@@ -288,7 +288,7 @@ pre-conditions, not part of the self-review.
 ## Chain
 
 After the iteration loop exits successfully, tell the user:
-> "UX spec written to `docs/ux-designer/ux-spec.md` with frontmatter
+> "UX spec written to `docs/design/ux-spec.md` with frontmatter
 > capturing PRD/features paths and the freeform brief. (PRD and feature
 > files were not modified.)
 >
@@ -298,5 +298,5 @@ After the iteration loop exits successfully, tell the user:
 
 If the iteration loop exited with outstanding issues, additionally print:
 > "⚠ N issues remain unresolved — see `## ⚠ Outstanding Issues` in
-> `docs/ux-designer/ux-spec.md`. Resolve before proceeding to the next
+> `docs/design/ux-spec.md`. Resolve before proceeding to the next
 > skill, or accept and continue."

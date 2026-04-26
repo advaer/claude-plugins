@@ -45,7 +45,7 @@ and pause — do not improvise.
 - `docs/design/wireframe-inventory.md` — **required**. Read its body to get
   the screen-to-wireframe mapping (each screen has an existing wireframe to
   use as structural reference).
-- `docs/ux-designer/ux-spec.md` body — screen inventory, navigation, flows, interaction patterns.
+- `docs/design/ux-spec.md` body — screen inventory, navigation, flows, interaction patterns.
 - The PRD at `frontmatter.sources.prd` (md/pdf) — product copy, personas, brand tone.
 - The features at `frontmatter.sources.features` — each feature's
   description (user stories + acceptance criteria). Feature files are NOT
@@ -209,7 +209,7 @@ as components. No local component copies.
 
 ### Step 3: Build Screen List from UX Spec
 
-Read `docs/ux-designer/ux-spec.md`, section **Screen Inventory**. Extract every
+Read `docs/design/ux-spec.md`, section **Screen Inventory**. Extract every
 screen marked for MVP, grouped by:
 1. Global screens (auth, errors, landing)
 2. Feature screens (grouped by feature)

@@ -49,9 +49,10 @@ The entry-point skill is `ux`. Pass file references with `@` and any freeform br
 ```
 /forge-design:ux @path/to/prd.{md|pdf} @path/to/features "freeform brief"
 /forge-design:ux "freeform brief only — no PRD yet"
+/forge-design:ux                                          # auto-finds docs/product/prd.md if it exists
 ```
 
-`features` may be a folder, a single file, or multiple files. Supported formats: `.md`, `.pdf` (convert `.docx`/`.xlsx` to PDF first).
+If you've run `/forge-product:prd` first, `ux` automatically picks up `docs/product/prd.md` — no `@`-path needed. `features` is opt-in only (no auto-discovery): pass `@path/to/features` explicitly when you want it. Supported formats: `.md`, `.pdf` (convert `.docx`/`.xlsx` to PDF first).
 
 Downstream skills inherit the PRD path, features path, and freeform brief from the upstream artifact's frontmatter — no need to re-pass them:
 

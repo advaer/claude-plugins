@@ -42,13 +42,13 @@ arranged within the approved layout**.
   inherit `sources.prd`, `sources.features`, `user_brief`, and
   `figma.wireframes_file_key`. Read its body for layout variants and the
   screen-to-variant mapping.
-- `docs/ux-designer/ux-spec.md` — **required**. Body: screen inventory,
+- `docs/design/ux-spec.md` — **required**. Body: screen inventory,
   interaction patterns. (Frontmatter not re-read — it's already in layout-spec.)
 - The PRD at `frontmatter.sources.prd` (md/pdf) — personas, feature names for realistic labels.
 - The features at `frontmatter.sources.features` — each feature's
   description (user stories + acceptance criteria). Feature files are NOT
   enriched with UX notes; derive content from the description plus
-  `docs/ux-designer/ux-spec.md` (screen inventory, interaction patterns).
+  `docs/design/ux-spec.md` (screen inventory, interaction patterns).
 - Figma file at `frontmatter.figma.wireframes_file_key` — opened to add wireframe pages.
 - `$ARGUMENTS` — optional freeform wireframe directives (see below).
 
@@ -124,7 +124,7 @@ coverage matter more than aesthetics.
 2. Read layout-spec.md body. Extract layout variants with zone definitions
    and the screen-to-variant mapping.
 3. Read the PRD at `sources.prd` and every feature file under `sources.features`.
-4. Read `docs/ux-designer/ux-spec.md` body for screen inventory and
+4. Read `docs/design/ux-spec.md` body for screen inventory and
    interaction patterns.
 
 Build the full screen list with:

@@ -1,7 +1,7 @@
 # UX Specification
 _Product: [working title]_
 _Date: [YYYY-MM-DD]_
-_Source: `docs/product-manager/prd.md` + feature descriptions_
+_Source: `docs/product/prd.md` + feature descriptions_
 _User input applied: [Yes — see User Input Notes / No]_
 _Platform scope: [Web / Mobile / Both — note MVP vs deferred]_
 
