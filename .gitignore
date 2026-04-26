@@ -27,3 +27,6 @@ node_modules/
 
 # Local Claude Code settings (per-user, not shared)
 .claude/settings.local.json
+
+# Plugin artifacts
+docs/
