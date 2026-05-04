@@ -16,12 +16,20 @@ Plugin marketplace for [Claude Code](https://www.anthropic.com/claude-code), by 
 
 ## Plugins
 
+### `forge` family — AI Startup Studio
+
 | Name | Description |
 |------|-------------|
 | [`forge-product`](forge/forge-product) | AI Startup Studio — Product Management plugin (PRD + RICE-scored backlog with vertical slices). |
 | [`forge-design`](forge/forge-design) | AI Startup Studio — design skills (`ux` → `layout` → `wireframe` → `concept` → `ds` → `ui`). Depends on the official [`figma`](https://claude.com/plugins) plugin (auto-installed). Requires `/mcp` authentication for the Figma MCP server. |
 
-Both plugins belong to the **[`forge`](forge)** family — see [`forge/README.md`](forge/README.md) for the family-wide output-path convention and skill contract.
+See [`forge/README.md`](forge/README.md) for the family-wide output-path convention and skill contract.
+
+### Standalone
+
+| Name | Description |
+|------|-------------|
+| [`docs-hq`](docs-hq) | Off-thread documentation operations. Dispatches docs lookup (the `explore` skill) to a Sonnet subagent — Context7 MCP first, web + Playwright fallback. Depends on the official `context7` and `playwright` plugins (auto-installed). |
 
 ## Updating
 
@@ -46,11 +54,17 @@ forge/                      # AI Startup Studio plugin family
     ├── README.md
     └── skills/{ux,layout,wireframe,concept,ds,ui}/
 
+docs-hq/                    # standalone — off-thread docs operations
+├── .claude-plugin/plugin.json
+├── README.md
+├── agents/docs-explorer.md
+└── skills/explore/
+
 CLAUDE.md                   # guidance for Claude Code working in this repo
 LICENSE                     # MIT
 ```
 
-To add a new plugin, drop it under a family directory (e.g. `forge/forge-architect/`), give it a `.claude-plugin/plugin.json`, and append an entry to `plugins[]` in `.claude-plugin/marketplace.json` with a `source` pointing at the new path. See [`forge/README.md`](forge/README.md) for the family-wide checklist.
+To add a new plugin, either drop it under an existing family directory (e.g. `forge/forge-architect/`) or place it at the repo root if it's standalone (e.g. `docs-hq/`). Give it a `.claude-plugin/plugin.json`, and append an entry to `plugins[]` in `.claude-plugin/marketplace.json` with a `source` pointing at the new path. For forge-family additions see [`forge/README.md`](forge/README.md) for the family-wide checklist.
 
 ## Versioning
 

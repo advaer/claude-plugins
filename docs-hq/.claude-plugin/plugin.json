@@ -1,0 +1,18 @@
+{
+  "name": "docs-hq",
+  "version": "0.1.0",
+  "description": "Headquarters for documentation operations. Off-thread docs lookup via a Sonnet subagent (Context7 MCP → web → Playwright fallback) — keeps the main thread clean and cheap.",
+  "author": {
+    "name": "Rinat Advaer"
+  },
+  "dependencies": [
+    {
+      "name": "context7",
+      "marketplace": "claude-plugins-official"
+    },
+    {
+      "name": "playwright",
+      "marketplace": "claude-plugins-official"
+    }
+  ]
+}
