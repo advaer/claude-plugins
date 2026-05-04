@@ -5,12 +5,12 @@ model: sonnet
 tools:
   - WebFetch
   - WebSearch
-  - mcp__context7__resolve-library-id
-  - mcp__context7__query-docs
-  - mcp__playwright__browser_navigate
-  - mcp__playwright__browser_snapshot
-  - mcp__playwright__browser_wait_for
-  - mcp__playwright__browser_close
+  - mcp__plugin_context7_context7__resolve-library-id
+  - mcp__plugin_context7_context7__query-docs
+  - mcp__plugin_playwright_playwright__browser_navigate
+  - mcp__plugin_playwright_playwright__browser_snapshot
+  - mcp__plugin_playwright_playwright__browser_wait_for
+  - mcp__plugin_playwright_playwright__browser_close
 ---
 
 <!-- Based on work by Maximilian Schwarzmüller (Academind). -->
@@ -30,7 +30,7 @@ For one or more technologies in the request:
 
 ### Step 1 — Resolve the library ID
 
-Call `mcp__context7__resolve-library-id` with:
+Call `mcp__plugin_context7_context7__resolve-library-id` with:
 - `libraryName`: extracted from the question.
 - `query`: the user's full question (improves relevance ranking).
 
@@ -42,7 +42,7 @@ Call `mcp__context7__resolve-library-id` with:
 
 ### Step 3 — Fetch the docs
 
-Call `mcp__context7__query-docs` with:
+Call `mcp__plugin_context7_context7__query-docs` with:
 - `libraryId`: the chosen Context7 ID (e.g. `/vercel/next.js`).
 - `query`: the user's specific question.
 
@@ -76,7 +76,7 @@ After Step 4 completes, if any single library's answer was thin or off-topic, ca
 
 4. **Plain page via `WebFetch`** if no LLM-friendly source exists.
 
-5. **Last resort — Playwright.** Use `mcp__playwright__browser_navigate` + `mcp__playwright__browser_snapshot` only when the docs are JS-rendered (SPA) and `WebFetch` returned no useful content. Always `mcp__playwright__browser_close` when done.
+5. **Last resort — Playwright.** Use `mcp__plugin_playwright_playwright__browser_navigate` + `mcp__plugin_playwright_playwright__browser_snapshot` only when the docs are JS-rendered (SPA) and `WebFetch` returned no useful content. Always `mcp__plugin_playwright_playwright__browser_close` when done.
 
 ## Parallel execution
 

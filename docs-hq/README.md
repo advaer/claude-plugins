@@ -30,7 +30,7 @@ Install:
 /plugin install docs-hq@advaer-plugins
 ```
 
-Claude Code will pull in the two dependencies automatically. After install, run `/mcp` and reconnect — Context7 works unauthenticated; Playwright spins up a browser on first use. Node is required (both MCPs run via `npx`).
+Claude Code will pull in the two dependencies automatically. After install, run `/mcp` to connect the two servers — Context7 works unauthenticated; Playwright spins up a browser on first use. Node is required (both MCPs run via `npx`).
 
 ### Overlap with a personal `context7-mcp` skill
 

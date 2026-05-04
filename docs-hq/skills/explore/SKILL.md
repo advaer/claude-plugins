@@ -1,5 +1,4 @@
 ---
-name: explore
 description: Off-thread documentation exploration. Use when the user asks a question *about* a library, framework, SDK, API, or CLI tool — including well-known ones (React, Vue, Next.js, Prisma, Tailwind, Django, Express, Spring, Supabase, LangGraph, etc.). Covers setup/configuration, version migration, library-specific debugging, API reference, and code generation that involves an external library. Dispatches the work to the `docs-explorer` subagent (Sonnet, fresh context, Context7 → web → Playwright fallback) so docs content does not pollute the main thread. Skip when the user only mentions a library in passing without asking about it, and for refactoring, business-logic debugging, or general programming concepts.
 disable-model-invocation: false
 ---

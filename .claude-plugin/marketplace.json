@@ -48,7 +48,7 @@
     {
       "name": "docs-hq",
       "source": "./docs-hq",
-      "description": "Headquarters for documentation operations. Off-thread, Sonnet subagent (Context7 MCP → web → Playwright fallback). Ships the `explore` skill now; more docs skills (write, audit, llms.txt) planned.",
+      "description": "Headquarters for documentation operations. Off-thread docs lookup via a Sonnet subagent (Context7 MCP → web → Playwright fallback).",
       "author": {
         "name": "Rinat Advaer"
       },
