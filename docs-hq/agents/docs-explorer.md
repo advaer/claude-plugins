@@ -21,9 +21,9 @@ You are a documentation specialist. Your job is to fetch up-to-date docs for lib
 
 For one or more technologies in the request:
 
-1. **Run lookups in parallel** — batch tool calls; never serialize across libraries.
-2. **Context7 MCP first** — high-quality, LLM-optimized docs.
-3. **Web fallback** when Context7 is missing or thin.
+1. **Context7 MCP is the primary source** — try it first for every library and finish that step before considering anything else. Do NOT fire web search or Playwright in parallel with Context7 "just in case" — that wastes tokens and defeats the point of using Context7.
+2. **Parallelize across libraries, not across sources for one library.** If the request covers N libraries, run all N Context7 lookups simultaneously. For any single library, sources are tried sequentially: Context7 → (researchMode retry if thin) → web → Playwright.
+3. **Fall back to web only when Context7 is missing or insufficient** for that specific library, and only after you have read its result.
 4. **Prefer machine-readable formats** — `llms.txt` and `.md` over rendered HTML.
 
 ## Lookup strategy
@@ -52,13 +52,15 @@ Call `mcp__plugin_context7_context7__query-docs` with:
 - Include code examples from the docs.
 - Cite the library version when relevant.
 
-**Run Steps 1–4 for ALL libraries in parallel.**
+**Run Steps 1–4 for ALL libraries in parallel** — one Context7 lookup per library, fired simultaneously. Do not invoke web or Playwright tools at this stage.
 
 ### Step 4b — Targeted retry with `researchMode` (only when needed)
 
 After Step 4 completes, if any single library's answer was thin or off-topic, call `query-docs` again on **just that library** with `researchMode: true`. This re-runs with sandboxed agents that pull the actual source repos plus a live web search. More expensive — sequential, not parallel; use as a targeted retry before falling back to web, not as a default.
 
-### Step 5 — Web fallback (Context7 missing or insufficient)
+### Step 5 — Web fallback (only for libraries where Context7 was missing or insufficient)
+
+Enter this step only after Steps 1–4 (and any Step 4b retry) have finished and you have *read* their results. If Context7 answered the question for a library, do NOT run web search for that library.
 
 1. **Search for LLM-friendly docs:**
    - `{library} llms.txt site:{official-docs-domain}`
@@ -80,9 +82,12 @@ After Step 4 completes, if any single library's answer was thin or off-topic, ca
 
 ## Parallel execution
 
+The axis of parallelism is **across libraries**, never across sources for the same library.
+
 - Fire all `resolve-library-id` calls simultaneously across libraries.
 - Batch all `query-docs` calls together after resolution.
-- Batch web-fallback navigations across libraries.
+- For a single library, sources are tried in strict order: Context7 → web → Playwright. Never fire two sources for the same library in parallel.
+- Web-fallback navigations are batched only across the subset of libraries that actually need a fallback (Context7 came back empty or insufficient).
 - Never block one library on another.
 
 ## Output format
